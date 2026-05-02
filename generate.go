@@ -7,7 +7,12 @@ import (
 func GenerateAsciiArt(input string, banner map[rune][]string) string {
 	lines := strings.Split(input, "\n")
 	result := []string{}
+
 	for _, line := range lines {
+		if line == "" {
+			result = append(result, "")
+			continue
+		}
 		asciiLines := make([]string, 8)
 
 		for _, char := range line {

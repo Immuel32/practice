@@ -16,8 +16,8 @@ func LoadBanner(filename string) (map[rune][]string, error) {
 
 	for i := 0; i <= 94; i++ {
 		char := rune(32 + i)
-		start := i * 9
-		if start+8 >= len(lines) {
+		start := i*9 + 1
+		if start+8 > len(lines) {
 			return nil, errors.New("banner file format incorrect")
 		}
 		banner[char] = lines[start : start+8]
